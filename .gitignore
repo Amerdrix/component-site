@@ -1,3 +1,5 @@
+.DS_Store
+
 # Logs
 logs
 *.log
@@ -32,3 +34,7 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+#build
+*/bin/*
+!*/bin/index.html
