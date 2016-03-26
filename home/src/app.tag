@@ -27,7 +27,7 @@ import './embed-knockout.tag'
   <style scoped>
       h1 {float: left;}
      .account {float: right;}
-     .clock { position: fixed; bottom: 0; right: 0;}
+     .clock { position: fixed; bottom: 0; left: 0;}
 
      .clearfix { clear: both;}
   </style>

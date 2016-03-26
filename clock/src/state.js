@@ -3,21 +3,26 @@ import Immutable from 'immutable'
 import { action$ } from './actions.js'
 
 const initalState = Immutable.Map()
+const history = Immutable.List()
 
 function applyAction(state, action, data) {
   switch (action) {
     case 'update-clock':
-        state = state.merge({clock: {now: new Date()}})
+        var clock = state.get('clock')
+        var count = clock != null ? clock.get('count') : 0
+        state = state.merge(
+          {clock: {
+            now: new Date(),
+            count: count + 1 }
+          })
       break;
     default:
   }
   return state;
 }
 
-
-const state$ =
-  action$
-    .scan((s, a) => applyAction(s, a.action, a.data), Immutable.Map())
+const state$ = action$
+                .scan((state, action) => applyAction(state, action.action, action.data), Immutable.Map())
 
 function get(pattern) {
   var keys = pattern.split('.');
