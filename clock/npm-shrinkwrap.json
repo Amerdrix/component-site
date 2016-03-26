@@ -1948,6 +1948,11 @@
         }
       }
     },
+    "rx": {
+      "version": "4.1.0",
+      "from": "rx@latest",
+      "resolved": "https://registry.npmjs.org/rx/-/rx-4.1.0.tgz"
+    },
     "send": {
       "version": "0.13.1",
       "from": "send@0.13.1",

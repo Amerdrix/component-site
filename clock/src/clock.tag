@@ -1,13 +1,18 @@
-import riot from 'riot'
-<clock>
-  <span>{this.now} </span>
+import state$ from './state.js'
 
-  const self = this;
-  function updateTime() {
-    self.now = (new Date()).toLocaleTimeString();
-    self.update();
-  }
-  setInterval(updateTime, 500);
-  updateTime();
+<clock>
+  <span> {this.now} </span>
+
+  <script>
+  this.now = 'Clock is un-initialized'
+  state$.get('clock.now').subscribe(now => {
+    if(now)
+    {
+      this.now = now.toLocaleTimeString()
+      this.update()
+    }
+
+  })
+  </script>
 
 </clock>
